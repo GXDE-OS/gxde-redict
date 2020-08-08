@@ -1,0 +1,12 @@
+Package: redict-dtk5-dbgsym
+Source: com.gitee.superendermansm.redict-dtk5
+Version: 0.8.1
+Auto-Built-Package: debug-symbols
+Architecture: amd64
+Maintainer: shenmo <jifengshenmo@outlook.com>
+Installed-Size: 84
+Depends: redict-dtk5 (= 0.8.1)
+Section: debug
+Priority: optional
+Description: debug symbols for redict-dtk5
+Build-Ids: 1fbcf3c14528d3eed067978f1ddb97713881526d
