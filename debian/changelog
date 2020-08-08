@@ -1,0 +1,29 @@
+com.gitee.superendermansm.redict-dtk5 (0.8.1) unstable; urgency=medium
+
+  * 划词翻译
+  * dtk5支持
+  
+redict (0.8) unstable; urgency=medium
+
+  * 修复图片加载不成功问题
+  * 支持快捷键 Ctrl + Tab 切换页面
+  * 修复菜单主题不正常问题
+  * 更新搜索栏图标
+  * 搜索建议框跟随窗口位置
+
+redict (0.7) unstable; urgency=medium
+
+  * 加入暗色主题
+  * 加入单词提示下拉栏
+  * 搜索框细节优化(比如加入清除按钮)
+
+redict (0.6) unstable; urgency=medium
+
+  * 优化网络问题
+  * 加入翻译界面
+
+redict (0.5) unstable; urgency=medium
+
+  * Initial Release.
+
+ -- Unshun White <rekols@foxmail.com> 2018-07-22 04:19:21

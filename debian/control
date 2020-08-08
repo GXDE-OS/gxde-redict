@@ -1,0 +1,12 @@
+Source: com.gitee.superendermansm.redict-dtk5
+Section: utils
+Priority: optional
+Maintainer: shenmo <jifengshenmo@outlook.com>
+Build-Depends: debhelper (>= 9),pkg-config, qt5-qmake, libdtkwidget-dev, libqt5svg5-dev, qttools5-dev-tools,libdtkcore-dev
+Standards-Version: 3.9.8
+Homepage: https://gitee.com/superendermansm/redict-dtk5
+
+Package: redict-dtk5
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: A third-party youdao dictionary for deepin.forked by shenmo
