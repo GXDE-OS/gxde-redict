@@ -14,3 +14,4 @@ override_dh_installdocs:
 	cp debian/copyright debian/com.gitee.superendermansm.redict-dtk5/opt/apps/com.gitee.superendermansm.redict-dtk5/files/
 	rm -rf debian/com.gitee.superendermansm.redict-dtk5/usr/
 	rm -f debian/com.gitee.superendermansm.redict-dtk5/DEBIAN/md5sums
+	./build.sh
