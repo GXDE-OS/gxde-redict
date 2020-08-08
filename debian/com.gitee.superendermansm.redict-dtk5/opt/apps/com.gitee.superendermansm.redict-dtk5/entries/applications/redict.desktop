@@ -1,7 +1,7 @@
 [Desktop Entry]
 Categories=Utility;
 Comment=redict
-Exec=/opt/apps/com.gitee.superendermansm.redict-dtk5/files/bin/redict
+Exec=/home/home/Desktop/opt/apps/com.gitee.superendermansm.redict-dtk5/files/bin/redict
 Icon=redict
 Name=Redict
 StartupNotify=true
