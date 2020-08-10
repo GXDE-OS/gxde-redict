@@ -9,4 +9,4 @@ Depends: com.gitee.superendermansm.redict-dtk5 (= 0.8.1)
 Section: debug
 Priority: optional
 Description: debug symbols for com.gitee.superendermansm.redict-dtk5
-Build-Ids: 1fbcf3c14528d3eed067978f1ddb97713881526d
+Build-Ids: 08e8334143d26d8c3a1847b72facaa9645c71888

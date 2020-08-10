@@ -1,0 +1,17 @@
+{
+    "appid": "com.gitee.superendermansm.redict-dtk5",
+    "name": "redict-dtk5",
+    "version": "0.8.1",
+    "arch": ["amd64,mips64el,arm64"],
+    "permissions": {
+        "autostart": false,
+        "notification": false,
+        "trayicon": false,
+        "clipboard": false,
+        "account": false,
+        "bluetooth": false,
+        "camera": false,
+        "audio_record": false,
+        "installed_apps": false
+    }
+}

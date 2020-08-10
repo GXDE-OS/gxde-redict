@@ -61,6 +61,6 @@ icon_files.path = /opt/apps/com.gitee.superendermansm.redict-dtk5/entries/icons/
 icon_files.files = $$PWD/images/redict.svg
 
 desktop.path = $$INSTROOT$$APPDIR
-desktop.files = redict.desktop
+desktop.files = com.gitee.superendermansm.redict-dtk5.desktop
 
 INSTALLS += target desktop icon_files
