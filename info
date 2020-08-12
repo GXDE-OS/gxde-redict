@@ -1,13 +1,13 @@
 {
-    "appid": "com.gitee.superendermansm.redict-dtk5",
+    "appid": "store.spark-app.redict-dtk5",
     "name": "redict-dtk5",
     "version": "0.8.1",
     "arch": ["amd64,mips64el,arm64"],
     "permissions": {
         "autostart": false,
         "notification": false,
-        "trayicon": false,
-        "clipboard": false,
+        "trayicon": true,
+        "clipboard": true,
         "account": false,
         "bluetooth": false,
         "camera": false,

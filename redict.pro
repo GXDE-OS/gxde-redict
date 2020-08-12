@@ -52,15 +52,15 @@ SOURCES += dailypage.cpp \
 
 RESOURCES += redict.qrc
 
-isEmpty(BINDIR):BINDIR=/opt/apps/com.gitee.superendermansm.redict-dtk5/files/bin
-isEmpty(APPDIR):APPDIR=/opt/apps/com.gitee.superendermansm.redict-dtk5/entries/applications
+isEmpty(BINDIR):BINDIR=/opt/apps/store.spark-app.redict-dtk5/files/bin
+isEmpty(APPDIR):APPDIR=/opt/apps/store.spark-app.redict-dtk5/entries/applications
 isEmpty(DSRDIR):DSRDIR=/usr/share/redict
 
 target.path = $$INSTROOT$$BINDIR
-icon_files.path = /opt/apps/com.gitee.superendermansm.redict-dtk5/entries/icons/hicolor/scalable/apps/
+icon_files.path = /opt/apps/store.spark-app.redict-dtk5/entries/icons/hicolor/scalable/apps/
 icon_files.files = $$PWD/images/redict.svg
 
 desktop.path = $$INSTROOT$$APPDIR
-desktop.files = com.gitee.superendermansm.redict-dtk5.desktop
+desktop.files = store.spark-app.redict-dtk5.desktop
 
 INSTALLS += target desktop icon_files

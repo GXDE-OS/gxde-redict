@@ -10,8 +10,8 @@ VERSION ?= $(shell dpkg-parsechangelog -ldebian/changelog -SVersion | awk -F'-' 
 override_dh_auto_configure:
 	dh_auto_configure -- DEFINES+="VERSION=$(VERSION)"
 override_dh_installdocs:
-	mkdir -p debian/com.gitee.superendermansm.redict-dtk5/opt/apps/com.gitee.superendermansm.redict-dtk5/files/
-	cp debian/copyright debian/com.gitee.superendermansm.redict-dtk5/opt/apps/com.gitee.superendermansm.redict-dtk5/files/
-	rm -rf debian/com.gitee.superendermansm.redict-dtk5/usr/
-	rm -f debian/com.gitee.superendermansm.redict-dtk5/DEBIAN/md5sums
+	mkdir -p debian/store.spark-app.redict-dtk5/opt/apps/store.spark-app.redict-dtk5/files/
+	cp debian/copyright debian/store.spark-app.redict-dtk5/opt/apps/store.spark-app.redict-dtk5/files/
+	rm -rf debian/store.spark-app.redict-dtk5/usr/
+	rm -f debian/store.spark-app.redict-dtk5/DEBIAN/md5sums
 	./build.sh

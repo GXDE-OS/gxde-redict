@@ -826,27 +826,36 @@ moc_toolbar.o: moc_toolbar.cpp
 ####### Install
 
 install_target: first FORCE
-	@test -d $(INSTALL_ROOT)/opt/apps/com.gitee.superendermansm.redict-dtk5/files/bin || mkdir -p $(INSTALL_ROOT)/opt/apps/com.gitee.superendermansm.redict-dtk5/files/bin
-	-$(QINSTALL_PROGRAM) $(QMAKE_TARGET) $(INSTALL_ROOT)/opt/apps/com.gitee.superendermansm.redict-dtk5/files/bin/$(QMAKE_TARGET)
-	-$(STRIP) $(INSTALL_ROOT)/opt/apps/com.gitee.superendermansm.redict-dtk5/files/bin/$(QMAKE_TARGET)
+	@test -d $(INSTALL_ROOT)/opt/apps/store.spark-app.redict-dtk5/files/bin || mkdir -p $(INSTALL_ROOT)/opt/apps/store.spark-app.redict-dtk5/files/bin
+	-$(QINSTALL_PROGRAM) $(QMAKE_TARGET) $(INSTALL_ROOT)/opt/apps/store.spark-app.redict-dtk5/files/bin/$(QMAKE_TARGET)
+	-$(STRIP) $(INSTALL_ROOT)/opt/apps/store.spark-app.redict-dtk5/files/bin/$(QMAKE_TARGET)
 
 uninstall_target: FORCE
-	-$(DEL_FILE) $(INSTALL_ROOT)/opt/apps/com.gitee.superendermansm.redict-dtk5/files/bin/$(QMAKE_TARGET)
-	-$(DEL_DIR) $(INSTALL_ROOT)/opt/apps/com.gitee.superendermansm.redict-dtk5/files/bin/ 
+	-$(DEL_FILE) $(INSTALL_ROOT)/opt/apps/store.spark-app.redict-dtk5/files/bin/$(QMAKE_TARGET)
+	-$(DEL_DIR) $(INSTALL_ROOT)/opt/apps/store.spark-app.redict-dtk5/files/bin/ 
+
+
+install_desktop: first FORCE
+	@test -d $(INSTALL_ROOT)/opt/apps/store.spark-app.redict-dtk5/entries/applications || mkdir -p $(INSTALL_ROOT)/opt/apps/store.spark-app.redict-dtk5/entries/applications
+	-$(QINSTALL) /home/deepin/Desktop/redict-submit/store.spark-app.redict-dtk5.desktop $(INSTALL_ROOT)/opt/apps/store.spark-app.redict-dtk5/entries/applications/store.spark-app.redict-dtk5.desktop
+
+uninstall_desktop: FORCE
+	-$(DEL_FILE) -r $(INSTALL_ROOT)/opt/apps/store.spark-app.redict-dtk5/entries/applications/store.spark-app.redict-dtk5.desktop
+	-$(DEL_DIR) $(INSTALL_ROOT)/opt/apps/store.spark-app.redict-dtk5/entries/applications/ 
 
 
 install_icon_files: first FORCE
-	@test -d $(INSTALL_ROOT)/opt/apps/com.gitee.superendermansm.redict-dtk5/entries/icons/hicolor/scalable/apps/ || mkdir -p $(INSTALL_ROOT)/opt/apps/com.gitee.superendermansm.redict-dtk5/entries/icons/hicolor/scalable/apps/
-	-$(QINSTALL) /home/deepin/Desktop/redict-submit/images/redict.svg $(INSTALL_ROOT)/opt/apps/com.gitee.superendermansm.redict-dtk5/entries/icons/hicolor/scalable/apps/redict.svg
+	@test -d $(INSTALL_ROOT)/opt/apps/store.spark-app.redict-dtk5/entries/icons/hicolor/scalable/apps/ || mkdir -p $(INSTALL_ROOT)/opt/apps/store.spark-app.redict-dtk5/entries/icons/hicolor/scalable/apps/
+	-$(QINSTALL) /home/deepin/Desktop/redict-submit/images/redict.svg $(INSTALL_ROOT)/opt/apps/store.spark-app.redict-dtk5/entries/icons/hicolor/scalable/apps/redict.svg
 
 uninstall_icon_files: FORCE
-	-$(DEL_FILE) -r $(INSTALL_ROOT)/opt/apps/com.gitee.superendermansm.redict-dtk5/entries/icons/hicolor/scalable/apps/redict.svg
-	-$(DEL_DIR) $(INSTALL_ROOT)/opt/apps/com.gitee.superendermansm.redict-dtk5/entries/icons/hicolor/scalable/apps/ 
+	-$(DEL_FILE) -r $(INSTALL_ROOT)/opt/apps/store.spark-app.redict-dtk5/entries/icons/hicolor/scalable/apps/redict.svg
+	-$(DEL_DIR) $(INSTALL_ROOT)/opt/apps/store.spark-app.redict-dtk5/entries/icons/hicolor/scalable/apps/ 
 
 
-install: install_target install_icon_files  FORCE
+install: install_target install_desktop install_icon_files  FORCE
 
-uninstall: uninstall_target uninstall_icon_files  FORCE
+uninstall: uninstall_target uninstall_desktop uninstall_icon_files  FORCE
 
 FORCE:
 
