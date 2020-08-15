@@ -7,6 +7,5 @@ Name=Redict
 StartupNotify=true
 TryExec=redict
 Type=Application
-
 # Translations
 Name[zh_CN]=Redict
