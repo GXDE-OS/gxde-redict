@@ -71,6 +71,12 @@ TransPage::TransPage(QWidget *parent)
 
     connect(m_orginEdit, &TextEdit::focusIn, [=] { m_transEdit->clearSelection(); });
     connect(m_orginEdit, &TextEdit::focusOut, [=] { m_orginEdit->clearSelection(); });
+
+    // 禁用控件
+    m_transBtn->setDisabled(true);
+    m_orginEdit->setDisabled(true);
+    m_typeBox->setDisabled(true);
+    m_orginEdit->setPlainText("暂不支持该功能");
 }
 
 TransPage::~TransPage()

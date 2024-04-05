@@ -51,6 +51,7 @@ protected:
     bool eventFilter(QObject *object, QEvent *event);
 
 private:
+    bool useDarkTheme();
     void activeWindow();
     void initWordingAction();
     void initTrayIconAction();

@@ -5,7 +5,7 @@
 QT += core gui widgets network multimedia x11extras
 
 TEMPLATE = app
-TARGET = redict
+TARGET = gxde-redict
 INCLUDEPATH += .
 CONFIG += c++11 link_pkgconfig
 PKGCONFIG += dtkwidget x11
@@ -52,15 +52,15 @@ SOURCES += dailypage.cpp \
 
 RESOURCES += redict.qrc
 
-isEmpty(BINDIR):BINDIR=/opt/apps/store.spark-app.redict-dtk5/files/bin
-isEmpty(APPDIR):APPDIR=/opt/apps/store.spark-app.redict-dtk5/entries/applications
+isEmpty(BINDIR):BINDIR=/usr/bin
+isEmpty(APPDIR):APPDIR=/usr/share/applications
 isEmpty(DSRDIR):DSRDIR=/usr/share/redict
 
 target.path = $$INSTROOT$$BINDIR
-icon_files.path = /opt/apps/store.spark-app.redict-dtk5/entries/icons/hicolor/scalable/apps/
+icon_files.path = /usr/share/icons/hicolor/scalable/apps/
 icon_files.files = $$PWD/images/redict.svg
 
 desktop.path = $$INSTROOT$$APPDIR
-desktop.files = store.spark-app.redict-dtk5.desktop
+desktop.files = gxde-redict.desktop
 
 INSTALLS += target desktop icon_files

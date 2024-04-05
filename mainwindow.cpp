@@ -29,6 +29,10 @@
 #include <QKeyEvent>
 #include <QDebug>
 
+#include <QProcess>
+
+DCORE_USE_NAMESPACE
+
 MainWindow::MainWindow(QWidget *parent)
     : DMainWindow(parent),
       m_mainLayout(new QStackedLayout),
@@ -54,7 +58,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     // init settings.
     if (!m_settings->contains("darkTheme")) {
-        m_settings->setValue("darkTheme", false);
+        m_settings->setValue("darkTheme", useDarkTheme());
     }
 
     installEventFilter(this);
@@ -90,6 +94,22 @@ MainWindow::MainWindow(QWidget *parent)
     connect(m_themeAction, &QAction::triggered, this, &MainWindow::handleThemeTriggered);
     connect(m_toolBar, &ToolBar::currentChanged, m_mainLayout, &QStackedLayout::setCurrentIndex);
     connect(this, &MainWindow::requestKeyPressEvent, this, &MainWindow::keyPressEvent);
+}
+
+bool MainWindow::useDarkTheme()
+{
+    QString res = "";
+    QProcess process;
+    process.start("qdbus", QStringList() << "com.deepin.daemon.Appearance" <<
+                  "/com/deepin/daemon/Appearance" << "com.deepin.daemon.Appearance.GtkTheme");
+    process.waitForStarted();
+    process.waitForFinished();
+    res = process.readAllStandardOutput().replace("\n", "").replace(" ", "");
+    process.close();
+    if(res == "deepin-dark"){
+        return true;
+    }
+    return false;
 }
 
 MainWindow::~MainWindow()

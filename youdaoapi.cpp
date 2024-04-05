@@ -88,29 +88,22 @@ void YoudaoAPI::suggest(const QString &text)
 
 void YoudaoAPI::translate(const QString &text, const QString &type)
 {
-    QUrl url("http://fanyi.youdao.com/translate");
+    queryWord(text);
+    // 废弃
+    /*QUrl url("https://api.microsofttranslator.com/v2/Http.svc/Translate");
     QUrlQuery query;
-    query.addQueryItem("dogVersion", "1.0");
-    query.addQueryItem("ue", "utf8");
-    query.addQueryItem("doctype", "json");
-    query.addQueryItem("xmlVersion", "1.6");
-    query.addQueryItem("client", "deskdict_deepin");
-    query.addQueryItem("id", "92dc50aa4970fb72d");
-    query.addQueryItem("vendor", "YoudaoDict");
-    query.addQueryItem("appVer", "1.0.3");
-    query.addQueryItem("appZengqiang", "0");
-    query.addQueryItem("abTest", "5");
-    query.addQueryItem("smartresult", "dict");
-    query.addQueryItem("smartresult", "rule");
-    query.addQueryItem("keyfrom", "deskdict.main");
-    query.addQueryItem("i", text);
-    query.addQueryItem("type", type);
+
+    query.addQueryItem("appId", "A4D660A48A6A97CCA791C34935E4C02BBB1BEC1C");
+    query.addQueryItem("text", text);
+    query.addQueryItem("from", "");
+    query.addQueryItem("to", "en");
     url.setQuery(query.toString(QUrl::FullyEncoded));
+    qDebug() << query.toString(QUrl::FullyEncoded);
 
     QNetworkRequest request(url);
     QNetworkReply *reply = m_http->get(request);
 
-    connect(reply, &QNetworkReply::finished, this, &YoudaoAPI::handleTranslateFinished);
+    connect(reply, &QNetworkReply::finished, this, &YoudaoAPI::handleTranslateFinished);*/
 }
 
 void YoudaoAPI::queryDaily()
@@ -208,22 +201,12 @@ void YoudaoAPI::handleTranslateFinished()
     QNetworkReply *reply = qobject_cast<QNetworkReply *>(sender());
 
     if (reply->error() != QNetworkReply::NoError) {
+        emit translateFinished(tr("Error"));
         return;
     }
 
-    QJsonDocument document = QJsonDocument::fromJson(reply->readAll());
-    QJsonArray array = document.object().value("translateResult").toArray();
-    QString text;
-
-    for (const QJsonValue &value : array) {
-        QJsonArray arr = value.toArray();
-        for (const QJsonValue &value : arr) {
-            QString ret = value.toObject().value("tgt").toString();
-            text += ret;
-            text += "\n";
-        }
-    }
-
+    QString text = reply->readAll();
+    qDebug() << text;
     emit translateFinished(text);
 }
 
