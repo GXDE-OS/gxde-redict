@@ -5,7 +5,7 @@ Exec=/usr/bin/gxde-redict
 Icon=redict
 Name=Redict
 StartupNotify=true
-TryExec=redict
+TryExec=/usr/bin/gxde-redict
 Type=Application
 # Translations
 Name[zh_CN]=Redict
