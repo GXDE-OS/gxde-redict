@@ -20,9 +20,9 @@
 #ifndef POPUPWINDOW_H
 #define POPUPWINDOW_H
 
+#include "popupcontent.h"
 #include <QWidget>
 #include <QStackedLayout>
-#include "popupcontent.h"
 #include "youdaoapi.h"
 
 DWIDGET_USE_NAMESPACE

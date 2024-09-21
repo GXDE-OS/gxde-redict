@@ -20,13 +20,13 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
+#include "popup/popupwindow.h"
 #include <DMainWindow>
 #include <QStackedLayout>
 #include <QSettings>
 #include <QMenu>
 
 #include "widgets/toolbar.h"
-#include "popup/popupwindow.h"
 #include "homepage.h"
 #include "transpage.h"
 #include "trayicon.h"

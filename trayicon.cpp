@@ -17,8 +17,9 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "trayicon.h"
 #include "mainwindow.h"
+#include "trayicon.h"
+
 
 TrayIcon::TrayIcon(QObject *parent)
     : QSystemTrayIcon(parent),

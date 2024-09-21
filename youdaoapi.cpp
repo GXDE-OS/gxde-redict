@@ -88,7 +88,8 @@ void YoudaoAPI::suggest(const QString &text)
 
 void YoudaoAPI::translate(const QString &text, const QString &type)
 {
-    QUrl url("http://fanyi.youdao.com/translate");
+    queryWord(text);
+    /*QUrl url("https://openapi.youdao.com/api");
     QUrlQuery query;
     query.addQueryItem("dogVersion", "1.0");
     query.addQueryItem("ue", "utf8");
@@ -103,14 +104,14 @@ void YoudaoAPI::translate(const QString &text, const QString &type)
     query.addQueryItem("smartresult", "dict");
     query.addQueryItem("smartresult", "rule");
     query.addQueryItem("keyfrom", "deskdict.main");
-    query.addQueryItem("i", text);
+    query.addQueryItem("q", text);
     query.addQueryItem("type", type);
     url.setQuery(query.toString(QUrl::FullyEncoded));
 
     QNetworkRequest request(url);
     QNetworkReply *reply = m_http->get(request);
 
-    connect(reply, &QNetworkReply::finished, this, &YoudaoAPI::handleTranslateFinished);
+    connect(reply, &QNetworkReply::finished, this, &YoudaoAPI::handleTranslateFinished);*/
 }
 
 void YoudaoAPI::queryDaily()
@@ -208,11 +209,13 @@ void YoudaoAPI::handleTranslateFinished()
     QNetworkReply *reply = qobject_cast<QNetworkReply *>(sender());
 
     if (reply->error() != QNetworkReply::NoError) {
+        qDebug() << reply->errorString();
         return;
     }
-
-    QJsonDocument document = QJsonDocument::fromJson(reply->readAll());
+    QByteArray oldText = reply->readAll();
+    QJsonDocument document = QJsonDocument::fromJson(oldText);
     QJsonArray array = document.object().value("translateResult").toArray();
+    qDebug() << oldText;
     QString text;
 
     for (const QJsonValue &value : array) {

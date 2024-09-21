@@ -20,6 +20,7 @@
 #ifndef POPUPCONTENT_H
 #define POPUPCONTENT_H
 
+//#include "speaker.h"
 #include "dabstractdialog.h"
 #include "dblureffectwidget.h"
 

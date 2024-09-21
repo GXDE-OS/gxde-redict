@@ -17,9 +17,9 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include "mainwindow.h"
 #include <DApplication>
 #include <DWidgetUtil>
-#include "mainwindow.h"
 #include "utils.h"
 
 DWIDGET_USE_NAMESPACE

@@ -22,6 +22,7 @@
 #include <QVBoxLayout>
 #include <QMouseEvent>
 #include <QLabel>
+#include "dimagebutton.h"
 
 PopupContent::PopupContent(QWidget *parent)
     : DAbstractDialog(parent),
@@ -42,14 +43,35 @@ PopupContent::PopupContent(QWidget *parent)
     layout->addWidget(contentFrame);
     layout->setMargin(0);
 
+    /*DImageButton *querySpeakBtn = new DImageButton();
+    querySpeakBtn->setNormalPic(":/images/audio-dark-normal.svg");
+    querySpeakBtn->setHoverPic(":/images/audio-dark-hover.svg");
+    querySpeakBtn->setPressPic(":/images/audio-dark-press.svg");
+    //layout->addWidget(querySpeakBtn);
+    connect(querySpeakBtn, &DImageButton::clicked, this, [this](){
+        Speaker(m_queryLabel->text());
+    });
+
+    DImageButton *transSpeakBtn = new DImageButton();
+    transSpeakBtn->setNormalPic(":/images/audio-dark-normal.svg");
+    transSpeakBtn->setHoverPic(":/images/audio-dark-hover.svg");
+    transSpeakBtn->setPressPic(":/images/audio-dark-press.svg");
+    //layout->addWidget(querySpeakBtn);
+    connect(transSpeakBtn, &DImageButton::clicked, this, [this](){
+        Speaker(m_transLabel->text());
+    });*/
+
+
     QWidget *mainWidget = new QWidget;
-    QVBoxLayout *mainLayout = new QVBoxLayout(mainWidget);
+    QGridLayout *mainLayout = new QGridLayout(mainWidget);
     contentFrame->setWidget(mainWidget);
 
     mainLayout->setContentsMargins(10, 10, 10, 10);
-    mainLayout->addWidget(m_queryLabel);
-    mainLayout->addWidget(m_transLabel);
-    mainLayout->addStretch();
+    mainLayout->addWidget(m_queryLabel, 0, 0);
+    //mainLayout->addWidget(querySpeakBtn, 0, 1);
+    mainLayout->addWidget(m_transLabel, 1, 0);
+    //mainLayout->addWidget(transSpeakBtn, 1, 1);
+    //mainLayout->addStretch();
 
     m_queryLabel->setWordWrap(true);
     m_transLabel->setWordWrap(true);
